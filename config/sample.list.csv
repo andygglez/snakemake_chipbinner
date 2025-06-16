@@ -1,0 +1,9 @@
+Rep1,Rep2,Condition,Mark
+NSD2i_D5_Rep2_H3K27Ac.clipped.bam,,NSD2iD5,H3K27ac
+Vehicle_D5_Rep2_H3K27Ac.clipped.bam,,CtrlD5,H3K27ac
+NSD2i_D9_Rep1_H3K27Ac.clipped.bam,,NSD2iD9,H3K27me3
+Vehicle_D9_Rep1_H3K27Ac.clipped.bam,,CtrlD9,H3K27me3
+NSD2i_D9_Rep1_H3K27Ac.clipped.bam,,NSD2iD9,H3K9me3
+Vehicle_D9_Rep1_H3K27Ac.clipped.bam,,CtrlD9,H3K9me3
+NSD2i_D9_Rep1_H3K27Ac.clipped.bam,,NSD2iD1,H3K9me3
+Vehicle_D9_Rep1_H3K27Ac.clipped.bam,,CtrlD1,H3K9me3
