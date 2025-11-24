@@ -1,0 +1,18 @@
+general:
+  analysis: chipbinner
+  organism: mm10
+  MS_normalize: yes
+  merge_replicates: yes
+  filter_low_counts: no
+inputs:
+  sample_folder: /home/andygg98/work/nsd2_work/chipbinner_10T_10kb/samples
+references:
+  blacklist: /home/andygg98/projects/rrg-majewski-ab/andygg98/references/mm10/mm10.blacklist.bed
+  binning_windows: /home/andygg98/references/chipbinner/mm10.10kb.windows.bed
+  MS_yaml: references/coefficients_NSD2.3.comparisons.yaml
+comparisons:
+- NSD2KO_Parental
+comparison_parameters:
+  NSD2KO_Parental_H3K9me3: -5.64_0.25_0.1
+  NSD2KO_Parental_H3K27me3: -5.64_0.25_0.1
+  NSD2KO_Parental_H3K36me2: -5.2_0.41_0.75
