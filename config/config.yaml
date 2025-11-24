@@ -1,0 +1,22 @@
+general:
+  analysis: chipbinner
+  organism: hg38
+  single/pair-ended: pe
+  MS_normalize: yes
+  merge_replicates: yes
+  use_input: False
+inputs:
+  sample_folder: samples
+references:
+  reference_genome: home/andygg98/projects/rrg-majewski-ab/andygg98/references/hg38/hg38.fa
+  reference_gtf: /home/andygg98/projects/rrg-majewski-ab/andygg98/references/hg38/hg38.gtf
+  blacklist: /home/andygg98/projects/rrg-majewski-ab/andygg98/references/hg38/hg38.blacklist.bed
+  binning_windows: /lustre06/project/6007495/andygg98/references/chipbinner/hg38.10kb.windows.bed
+  MS_yaml: references/MS_gozani.yaml
+comparisons:
+    - NSD2iD1_CtrlD1
+    - NSD2iD5_CtrlD5
+    - NSD2iD9_CtrlD9
+comparison_parameters:
+  NSD2iD5_CtrlD5_H3K27ac: -6.0_4_0.75
+  NSD2iD1_CtrlD1_H3K27ac: -6_4_0.75
