@@ -78,7 +78,6 @@ final_bw_files = []
 for condition in condition_sample.keys():
     final_bw_files.extend("outdir/"+bigWig_folder+"_final/"+condition+"."+mark+".bw" for mark in condition_mark[condition])
 
-
 comparison_marks = {}
 for comp in config['comparisons']:
     treatment = comp.split("_")[0]
@@ -181,6 +180,11 @@ else:
             &&  echo "for {wildcards.sample} used 1 as MS coefficient"
             """
 
+
+if not config['general']['merge_replicates']:
+    condition_sample_mark_not_merged = {cond: {mark: [x for x in samples if isinstance(x, str)] for mark, samples in mark_dict.items()} for cond, mark_dict in condition_sample_mark.items()}
+    print(condition_sample_mark_not_merged) ###
+
 if config['general']['merge_replicates']:
     rule merged_bw_files:
         input:
@@ -205,7 +209,7 @@ if config['general']['merge_replicates']:
 else:
     rule notmerged_bw_files:
         input:
-            rep = lambda wildcards: f"outdir/{bigWig_folder}/{replace_suffix(condition_sample[wildcards.condition][0])}.binned.bw" if not config['general']['filter_low_counts'] else lambda wildcards: f"outdir/{bigWig_folder}/{replace_suffix(condition_sample[wildcards.condition][0])}.binned_filt.bw",
+            rep = lambda wildcards: f"outdir/{bigWig_folder}/{condition_sample_mark[wildcards.condition][wildcards.mark][0]}.binned.bw" if not config['general']['filter_low_counts'] else lambda wildcards: f"outdir/{bigWig_folder}/{replace_suffix(condition_sample_mark[wildcards.condition][wildcards.mark][0])}.binned_filt.bw",
         output:
             bw_merged = "outdir/"+bigWig_folder+"_final/{condition}.{mark}.bw"
         params:
